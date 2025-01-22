@@ -102,29 +102,29 @@
     </nav>
     <div class="container" id="products">
         <h2>Nuestros Productos Oversize</h2>
-        <div class="product" data-name="Sudadera Oversize" data-price="30.00">
+        <div class="product" data-name="Sudadera Oversize" data-price="120000">
             <img src="https://via.placeholder.com/250?text=Sudadera+Oversize" alt="Sudadera Oversize">
             <h3>Sudadera Oversize</h3>
-            <p>$30.00</p>
+            <p>$120,000 COP</p>
             <button onclick="addToCart(this)">Agregar al carrito</button>
         </div>
-        <div class="product" data-name="Camisa Oversize" data-price="25.00">
+        <div class="product" data-name="Camisa Oversize" data-price="100000">
             <img src="https://via.placeholder.com/250?text=Camisa+Oversize" alt="Camisa Oversize">
             <h3>Camisa Oversize</h3>
-            <p>$25.00</p>
+            <p>$100,000 COP</p>
             <button onclick="addToCart(this)">Agregar al carrito</button>
         </div>
-        <div class="product" data-name="Pantalón Oversize" data-price="35.00">
+        <div class="product" data-name="Pantalón Oversize" data-price="150000">
             <img src="https://via.placeholder.com/250?text=Pantal%C3%B3n+Oversize" alt="Pantalón Oversize">
             <h3>Pantalón Oversize</h3>
-            <p>$35.00</p>
+            <p>$150,000 COP</p>
             <button onclick="addToCart(this)">Agregar al carrito</button>
         </div>
     </div>
     <div id="cart">
         <h3>Carrito de Compras</h3>
         <ul id="cart-items"></ul>
-        <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+        <p><strong>Total:</strong> $<span id="cart-total">0</span> COP</p>
         <button onclick="clearCart()">Vaciar Carrito</button>
     </div>
 
@@ -149,7 +149,7 @@
 
             cart.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                li.textContent = `${item.name} - $${item.price.toLocaleString('es-CO')} COP`;
                 const removeButton = document.createElement('button');
                 removeButton.textContent = 'Eliminar';
                 removeButton.onclick = () => {
@@ -161,7 +161,7 @@
                 total += item.price;
             });
 
-            cartTotal.textContent = total.toFixed(2);
+            cartTotal.textContent = total.toLocaleString('es-CO');
             document.getElementById('cart').style.display = cart.length > 0 ? 'block' : 'none';
         }
 
@@ -172,3 +172,4 @@
     </script>
 </body>
 </html>
+
